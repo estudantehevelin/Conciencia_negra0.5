@@ -3,187 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consciência Negra: História, Cultura e Transformação. Portal educativo sobre igualdade racial, personalidades negras, história, cultura afro-brasileira e ações antirracistas.">
-  <meta name="keywords" content="Consciência Negra, Cultura Negra, Zumbi dos Palmares, Antirracismo, História Afro-Brasileira, Igualdade Racial">
+  <meta name="description" content="Consciência Negra: História, Cultura e Transformação. Portal educativo sobre igualdade racial, cultura afro-brasileira e ações antirracistas.">
   <title>Consciência Negra: História, Cultura e Transformação</title>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://googleapis.com" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
-
-  <!-- Barra de Acessibilidade -->
-  <div class="a11y-bar" role="region" aria-label="Ferramentas de acessibilidade">
-    <div class="container a11y-controls">
+  <div class="a11y-bar">
+    <div class="container flex-end">
       <span>Acessibilidade:</span>
-      <button type="button" id="btn-font-dec" aria-label="Diminuir tamanho da fonte">A-</button>
-      <button type="button" id="btn-font-reset" aria-label="Tamanho padrão da fonte">A</button>
-      <button type="button" id="btn-font-inc" aria-label="Aumentar tamanho da fonte">A+</button>
-      <button type="button" id="btn-contrast" aria-pressed="false">Alto Contraste</button>
+      <button id="font-dec" aria-label="Diminuir fonte">A-</button>
+      <button id="font-inc" aria-label="Aumentar fonte">A+</button>
+      <button id="btn-contrast" aria-pressed="false">Alto Contraste</button>
     </div>
   </div>
 
-  <!-- Navegação Fixa -->
-  <header class="site-header">
-    <div class="container nav-container">
-      <a href="#inicio" class="logo" aria-label="Página inicial Consciência Negra">
-        <span class="logo-symbol" aria-hidden="true">◆</span>
-        <span>Consciência Negra</span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu">
-        ☰
-      </button>
-      <nav id="nav-menu" class="nav-menu" aria-label="Navegação principal">
-        <ul>
-          <li><a href="#o-que-e">O que é</a></li>
-          <li><a href="#historia">História</a></li>
-          <li><a href="#personalidades">Personalidades</a></li>
-          <li><a href="#cultura">Cultura</a></li>
-          <li><a href="#racismo">Entenda o Racismo</a></li>
-          <li><a href="#antirracismo">Como Agir</a></li>
-          <li><a href="#materiais">Materiais</a></li>
-          <li><a href="#mural">Mural</a></li>
-          <li><a href="#participar" class="nav-cta">Participe</a></li>
-        </ul>
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="#inicio" class="logo">◆ Consciência Negra</a>
+      <button class="menu-btn" id="menu-btn" aria-label="Menu">☰</button>
+      <nav id="nav-menu" class="nav">
+        <a href="#o-que-e">O que é</a>
+        <a href="#historia">História</a>
+        <a href="#personalidades">Personalidades</a>
+        <a href="#cultura">Cultura</a>
+        <a href="#racismo">Racismo</a>
+        <a href="#antirracismo">Como Agir</a>
+        <a href="#materiais">Materiais</a>
+        <a href="#mural">Mural</a>
+        <a href="#participar" class="btn-sm">Participe</a>
       </nav>
     </div>
   </header>
 
-  <main id="conteudo-principal">
-    <!-- 1. PÁGINA INICIAL / BANNER -->
+  <main>
+    <!-- 1. PÁGINA INICIAL -->
     <section id="inicio" class="hero">
-      <div class="hero-pattern" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="badge">Educação • Ancestralidade • Futuro</span>
+      <div class="container grid-2">
+        <div>
+          <span class="tag">Educação • Ancestralidade • Futuro</span>
           <h1>Consciência Negra: conhecer, valorizar e transformar</h1>
-          <p class="hero-quote">“Nossa história também constrói o futuro.”</p>
-          <p class="hero-desc">
-            A Consciência Negra não se resume a uma data no calendário. É um compromisso diário de reconhecimento, respeito e valorização da história, da ciência, da arte e do protagonismo da população negra na formação do Brasil e do mundo durante todos os dias do ano.
-          </p>
-          <div class="hero-actions">
+          <blockquote class="lead-quote">“Nossa história também constrói o futuro.”</blockquote>
+          <p>A Consciência Negra deve ser praticada o ano inteiro. É o compromisso diário com o respeito, a igualdade racial e a valorização das contribuições da população negra na construção do Brasil e do mundo.</p>
+          <div class="btn-group">
             <a href="#historia" class="btn btn-primary">Conheça nossa história</a>
-            <a href="#personalidades" class="btn btn-secondary">Explore personalidades negras</a>
+            <a href="#personalidades" class="btn btn-green">Explore personalidades negras</a>
             <a href="#participar" class="btn btn-outline">Aprenda e participe</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-card-visual">
-            <img src="https://unsplash.com" 
-                 alt="Mulher negra sorrindo com expressão de orgulho, confiança e alegria em ambiente iluminado" 
-                 loading="eager">
-            <div class="hero-caption">
-              <strong>Protagonismo e Identidade</strong>
-              <span>“Valorizar a cultura negra é reconhecer a história do Brasil.”</span>
-            </div>
-          </div>
-        </div>
+        <figure class="hero-img">
+          <img src="https://unsplash.com" alt="Mulher negra sorrindo com orgulho e confiança">
+          <figcaption>“Valorizar a cultura negra é reconhecer a história do Brasil.”</figcaption>
+        </figure>
       </div>
     </section>
 
     <!-- 2. O QUE É CONSCIÊNCIA NEGRA -->
-    <section id="o-que-e" class="section bg-sand">
+    <section id="o-que-e" class="sec bg-sand">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Fundamentos</span>
-          <h2>O que é Consciência Negra?</h2>
-          <p>Compreender o passado para transformar o presente e construir uma sociedade justa.</p>
-        </div>
-
+        <h2 class="sec-title">O que é Consciência Negra?</h2>
         <div class="grid-3">
-          <article class="info-card">
-            <h3>O Significado</h3>
-            <p>
-              Consciência Negra é o reconhecimento da identidade, da ancestralidade, da força intelectual e das contribuições fundamentais dos povos africanos e afrodescendentes. É também a percepção crítica sobre as desigualdades raciais e o compromisso ativo com a justiça social.
-            </p>
+          <article class="card">
+            <h3>Significado</h3>
+            <p>Reconhecimento da identidade, ancestralidade, ciência e cultura dos povos africanos e afrodescendentes, somado à luta ativa contra as desigualdades raciais.</p>
           </article>
-
-          <article class="info-card">
+          <article class="card">
             <h3>20 de Novembro e Zumbi</h3>
-            <p>
-              Celebrado em 20 de novembro, o Dia Nacional de Zumbi e da Consciência Negra marca a data da morte de <strong>Zumbi dos Palmares</strong>, em 1695. Zumbi liderou o Quilombo dos Palmares, o maior símbolo de resistência organizada contra o sistema escravocrata nas Américas.
-            </p>
+            <p>Marca a morte de <strong>Zumbi dos Palmares</strong> (1695), líder do Quilombo dos Palmares e maior símbolo de resistência organizada contra a escravidão nas Américas.</p>
           </article>
-
-          <article class="info-card">
-            <h3>Todo o Ano, Não Só Novembro</h3>
-            <p>
-              O racismo opera diariamente nas instituições e nas relações sociais. Por isso, a educação antirracista, o incentivo à leitura de autores negros e o combate à discriminação precisam acontecer de janeiro a dezembro nas escolas, empresas e famílias.
-            </p>
+          <article class="card">
+            <h3>Todo o Ano</h3>
+            <p>O racismo atua diariamente na sociedade. Por isso, a educação antirracista e a valorização da cultura negra precisam ocorrer de janeiro a dezembro, não apenas em novembro.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 3. HISTÓRIA E RESISTÊNCIA (LINHA DO TEMPO INTERATIVA) -->
-    <section id="historia" class="section">
+    <!-- 3. HISTÓRIA E RESISTÊNCIA -->
+    <section id="historia" class="sec">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Memória Viva</span>
-          <h2>História e Resistência</h2>
-          <p>Navegue pelos marcos históricos de luta, organização, saberes e conquistas da população negra.</p>
-        </div>
-
-        <div class="timeline-wrapper">
-          <div class="timeline-tabs" role="tablist" aria-label="Marcos históricos">
-            <button class="timeline-tab active" role="tab" aria-selected="true" data-index="0">Saberes Africanos</button>
-            <button class="timeline-tab" role="tab" aria-selected="false" data-index="1">Quilombos & Palmares</button>
-            <button class="timeline-tab" role="tab" aria-selected="false" data-index="2">Abolição Incompleta (1888)</button>
-            <button class="timeline-tab" role="tab" aria-selected="false" data-index="3">Movimento Negro (Séc. XX)</button>
-            <button class="timeline-tab" role="tab" aria-selected="false" data-index="4">Conquistas & Leis</button>
-            <button class="timeline-tab" role="tab" aria-selected="false" data-index="5">Desafios Atuais</button>
-          </div>
-
-          <div class="timeline-display" id="timeline-display" role="tabpanel">
-            <!-- Preenchido via JavaScript -->
-          </div>
-        </div>
+        <h2 class="sec-title">História e Resistência</h2>
+        <div class="tabs" id="timeline-tabs"></div>
+        <div class="timeline-box" id="timeline-box"></div>
       </div>
     </section>
 
-    <!-- 4. PERSONALIDADES NEGRAS QUE INSPIRAM -->
-    <section id="personalidades" class="section bg-sand">
+    <!-- 4. PERSONALIDADES NEGRAS -->
+    <section id="personalidades" class="sec bg-sand">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Referências</span>
-          <h2>Personalidades Negras que Inspiram</h2>
-          <p>Conheça pensadores, líderes, cientistas e artistas que transformaram o Brasil e o mundo.</p>
-        </div>
-
-        <div class="filter-bar">
-          <label for="search-person" class="sr-only">Buscar personalidade</label>
-          <input type="search" id="search-person" placeholder="Buscar por nome, área ou contribuição..." aria-label="Buscar personalidade">
-          
-          <div class="filter-buttons" role="group" aria-label="Filtrar por área de atuação">
-            <button class="filter-btn active" data-filter="todos">Todas as áreas</button>
-            <button class="filter-btn" data-filter="Literatura">Literatura</button>
-            <button class="filter-btn" data-filter="Política e Liderança">Política & Liderança</button>
-            <button class="filter-btn" data-filter="Ciência e Educação">Ciência & Educação</button>
-            <button class="filter-btn" data-filter="Arte e Cultura">Arte & Cultura</button>
+        <h2 class="sec-title">Personalidades Negras que Inspiram</h2>
+        <div class="filter-controls">
+          <input type="search" id="search-person" placeholder="Buscar por nome, área ou legado...">
+          <div class="pills" id="person-filters">
+            <button class="pill active" data-area="todos">Todas</button>
+            <button class="pill" data-area="Literatura">Literatura</button>
+            <button class="pill" data-area="Liderança">Liderança</button>
+            <button class="pill" data-area="Ciência e Educação">Ciência & Educação</button>
+            <button class="pill" data-area="Arte e Cultura">Arte & Cultura</button>
           </div>
         </div>
-
-        <div class="cards-grid" id="personalidades-grid">
-          <!-- Renderizado via JS -->
-        </div>
+        <div class="grid-3" id="person-grid"></div>
       </div>
     </section>
 
     <!-- 5. CULTURA NEGRA -->
-    <section id="cultura" class="section">
+    <section id="cultura" class="sec">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Identidade e Expressão</span>
-          <h2>Riqueza da Cultura Negra</h2>
-          <p>A pluralidade das matrizes africanas e afro-brasileiras que moldam nossa linguagem, estética, música e visão de mundo.</p>
+        <h2 class="sec-title">Manifestações da Cultura Negra</h2>
+        <div class="grid-3">
+          <div class="card border-green"><h3>Música</h3><p>Samba, Maracatu, Jongo, Afoxé e Hip-Hop traduzem memória, crônica social, ritmo e resistência comunitária.</p></div>
+          <div class="card border-gold"><h3>Capoeira e Dança</h3><p>Patrimônio Cultural da Humanidade, a Capoeira une luta, dança, ancestralidade e filosofia de liberdade.</p></div>
+          <div class="card border-green"><h3>Culinária</h3><p>Ingredientes e saberes africanos criaram ícones como acarajé, vatapá, feijoada e caruru, cheios de afeto e história.</p></div>
+          <div class="card border-gold"><h3>Religiosidade</h3><p>Tradições como Candomblé e Umbanda preservam línguas africanas, medicina das ervas e respeito à natureza.</p></div>
+          <div class="card border-green"><h3>Moda e Artes Visuais</h3><p>Tranças nagô, turbantes e estética afrofuturista celebram beleza, identidade e inovação artística.</p></div>
+          <div class="card border-gold"><h3>Literatura e Oralidade</h3><p>A tradição dos contadores de histórias (griôs) inspira a "escrevivência" e a literatura contemporânea.</p></div>
         </div>
+      </div>
+    </section>
 
-        <div class="culture-grid">
-          <div class="culture-card">
-            <h3>Música: Samba, Maracatu, Jongo e Hip-Hop</h3>
-            <p>Dos tambores ancestrais aos centros urbanos, a musicalidade negra criou gêneros que definem a identidade cultural brasileira e global, unindo ritmo, poesia, crônica social e celebração comunitária.</p>
-          </div>
-          <div class="culture-card">
-            <h3>Capoeira e Dança</h3>
+    <!-- 6. RACISMO E DESIGUALDADE -->
+    <section id="racismo" class="sec bg-dark">
+      <div class="container">
+        <h2 class="sec-title text-gold">Entenda o Racismo e as Desigualdades</h2>
+        <div class="grid-3">
+          <div class="dark-card"><h3>Racismo Estrutural</h3><p>Naturalização histórica de desigualdades econômicas, políticas e jurídicas que limitam oportunidades à população negra.</p></div>
+          <div class="dark-card"><h3>Racismo Institucional</h3><p>Falha de instituições públicas ou privadas em oferecer tratamento justo e igualitário em razão da cor ou etnia.</p></div>
+          <div class="dark-card"><h3>Racismo Recreativo</h3><p>Uso de "piadas" e apelidos que ridicularizam pessoas negras, disfarçando o preconceito de humor.</p></div>
+          <div class="dark-card"><h3>Injúria Racial e Crime</h3><p>Ofender a dignidade por raça ou cor é crime inafiançável e imprescritível no Brasil (Lei 14.532/2023).</p></div>
+          <div class="dark-card"><h3>Colorismo e Privilégio</h3><p>Quanto mais retinta a pele, maior a exclusão. Privilégio é não enfrentar barreiras sociais por causa da cor.</p></div>
+          <div class="dark-card"><h3>Microagressões</h3><p>Comentários ou olhares sutis do cotidiano que comunicam inferiorização ou estranhamento.</p></div>
+        </div>
+        <div class="alert-box">
+          <strong>Como agir diante do racismo:</strong> 1) Acolha a vítima e seja testemunha; 2) Guarde provas (vídeos, prints, horários); 3) Denuncie pelo <strong>190</strong> (Polícia), delegacias especializadas ou <strong>Disque 100</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. COMO SER ANTIRRACISTA -->
+    <section id="antirracismo" class="sec bg-sand">
+      <div class="container">
+        <h2 class="sec-title">Como Ser Antirracista no Dia a Dia</h2>
+        <div class="grid-3">
+          <div class="card"><strong>01. Escute pessoas negras:</strong> Valide relatos sem interromper ou minimizar vivências.</div>
+          <div class="card"><strong>02. Estude a história real:</strong> Leia autores negros e conheça a África além da escravidão.</div>
+          <div class="card"><strong>03. Combata piadas racistas:</strong> Não ria e posicione-se contra comentários preconceituosos.</div>
+          <div class="card"><strong>04. Valorize negócios negros:</strong> Consuma produtos, serviços e arte de criadores negros.</div>
+          <div class="card"><strong>05. Cobre representatividade:</strong> Questione a falta de pessoas negras em lideranças e eventos.</div>
+          <div class="card"><strong>06. Reveja seu vocabulário:</strong> Elimine expressões racistas e apoie projetos sociais.</div>
+        </div>
+        <div class="banner-cta">
+          <p>“O combate ao racismo começa nas escolhas de todos os dias.”</p>
+          <a href="#participar" class="btn btn-primary">Assinar Compromisso Antirracista</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. EDUCAÇÃO E MATERIAIS -->
+    <section id="materiais" class="sec">
+      <div class="container">
+        <h2 class="sec-title">Educação e Materiais de Estudo</h2>
+        <div class="pills center" id="mat-filters">
+          <button class="pill active" data-mat="todos">Todos</button>
+          <button class="pill" data-mat="Livro">Livros</button>
+          <button class="pill" data-mat="Filme">Filmes & Docs</button>
+          <button class="pill" data-mat="Podcast">Podcasts</button>
