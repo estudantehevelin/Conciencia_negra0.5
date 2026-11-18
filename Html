@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consciência Negra: História, Cultura e Transformação. Portal educativo sobre igualdade racial, personalidades negras, história, cultura afro-brasileira e ações antirracistas.">
+  <meta name="keywords" content="Consciência Negra, Cultura Negra, Zumbi dos Palmares, Antirracismo, História Afro-Brasileira, Igualdade Racial">
+  <title>Consciência Negra: História, Cultura e Transformação</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- Barra de Acessibilidade -->
+  <div class="a11y-bar" role="region" aria-label="Ferramentas de acessibilidade">
+    <div class="container a11y-controls">
+      <span>Acessibilidade:</span>
+      <button type="button" id="btn-font-dec" aria-label="Diminuir tamanho da fonte">A-</button>
+      <button type="button" id="btn-font-reset" aria-label="Tamanho padrão da fonte">A</button>
+      <button type="button" id="btn-font-inc" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="btn-contrast" aria-pressed="false">Alto Contraste</button>
+    </div>
+  </div>
+
+  <!-- Navegação Fixa -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo" aria-label="Página inicial Consciência Negra">
+        <span class="logo-symbol" aria-hidden="true">◆</span>
+        <span>Consciência Negra</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu">
+        ☰
+      </button>
+      <nav id="nav-menu" class="nav-menu" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#o-que-e">O que é</a></li>
+          <li><a href="#historia">História</a></li>
+          <li><a href="#personalidades">Personalidades</a></li>
+          <li><a href="#cultura">Cultura</a></li>
+          <li><a href="#racismo">Entenda o Racismo</a></li>
+          <li><a href="#antirracismo">Como Agir</a></li>
+          <li><a href="#materiais">Materiais</a></li>
+          <li><a href="#mural">Mural</a></li>
+          <li><a href="#participar" class="nav-cta">Participe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+    <!-- 1. PÁGINA INICIAL / BANNER -->
+    <section id="inicio" class="hero">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="badge">Educação • Ancestralidade • Futuro</span>
+          <h1>Consciência Negra: conhecer, valorizar e transformar</h1>
+          <p class="hero-quote">“Nossa história também constrói o futuro.”</p>
+          <p class="hero-desc">
+            A Consciência Negra não se resume a uma data no calendário. É um compromisso diário de reconhecimento, respeito e valorização da história, da ciência, da arte e do protagonismo da população negra na formação do Brasil e do mundo durante todos os dias do ano.
+          </p>
+          <div class="hero-actions">
+            <a href="#historia" class="btn btn-primary">Conheça nossa história</a>
+            <a href="#personalidades" class="btn btn-secondary">Explore personalidades negras</a>
+            <a href="#participar" class="btn btn-outline">Aprenda e participe</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card-visual">
+            <img src="https://unsplash.com" 
+                 alt="Mulher negra sorrindo com expressão de orgulho, confiança e alegria em ambiente iluminado" 
+                 loading="eager">
+            <div class="hero-caption">
+              <strong>Protagonismo e Identidade</strong>
+              <span>“Valorizar a cultura negra é reconhecer a história do Brasil.”</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. O QUE É CONSCIÊNCIA NEGRA -->
+    <section id="o-que-e" class="section bg-sand">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Fundamentos</span>
+          <h2>O que é Consciência Negra?</h2>
+          <p>Compreender o passado para transformar o presente e construir uma sociedade justa.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="info-card">
+            <h3>O Significado</h3>
+            <p>
+              Consciência Negra é o reconhecimento da identidade, da ancestralidade, da força intelectual e das contribuições fundamentais dos povos africanos e afrodescendentes. É também a percepção crítica sobre as desigualdades raciais e o compromisso ativo com a justiça social.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>20 de Novembro e Zumbi</h3>
+            <p>
+              Celebrado em 20 de novembro, o Dia Nacional de Zumbi e da Consciência Negra marca a data da morte de <strong>Zumbi dos Palmares</strong>, em 1695. Zumbi liderou o Quilombo dos Palmares, o maior símbolo de resistência organizada contra o sistema escravocrata nas Américas.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <h3>Todo o Ano, Não Só Novembro</h3>
+            <p>
+              O racismo opera diariamente nas instituições e nas relações sociais. Por isso, a educação antirracista, o incentivo à leitura de autores negros e o combate à discriminação precisam acontecer de janeiro a dezembro nas escolas, empresas e famílias.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. HISTÓRIA E RESISTÊNCIA (LINHA DO TEMPO INTERATIVA) -->
+    <section id="historia" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Memória Viva</span>
+          <h2>História e Resistência</h2>
+          <p>Navegue pelos marcos históricos de luta, organização, saberes e conquistas da população negra.</p>
+        </div>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-tabs" role="tablist" aria-label="Marcos históricos">
+            <button class="timeline-tab active" role="tab" aria-selected="true" data-index="0">Saberes Africanos</button>
+            <button class="timeline-tab" role="tab" aria-selected="false" data-index="1">Quilombos & Palmares</button>
+            <button class="timeline-tab" role="tab" aria-selected="false" data-index="2">Abolição Incompleta (1888)</button>
+            <button class="timeline-tab" role="tab" aria-selected="false" data-index="3">Movimento Negro (Séc. XX)</button>
+            <button class="timeline-tab" role="tab" aria-selected="false" data-index="4">Conquistas & Leis</button>
+            <button class="timeline-tab" role="tab" aria-selected="false" data-index="5">Desafios Atuais</button>
+          </div>
+
+          <div class="timeline-display" id="timeline-display" role="tabpanel">
+            <!-- Preenchido via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PERSONALIDADES NEGRAS QUE INSPIRAM -->
+    <section id="personalidades" class="section bg-sand">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Referências</span>
+          <h2>Personalidades Negras que Inspiram</h2>
+          <p>Conheça pensadores, líderes, cientistas e artistas que transformaram o Brasil e o mundo.</p>
+        </div>
+
+        <div class="filter-bar">
+          <label for="search-person" class="sr-only">Buscar personalidade</label>
+          <input type="search" id="search-person" placeholder="Buscar por nome, área ou contribuição..." aria-label="Buscar personalidade">
+          
+          <div class="filter-buttons" role="group" aria-label="Filtrar por área de atuação">
+            <button class="filter-btn active" data-filter="todos">Todas as áreas</button>
+            <button class="filter-btn" data-filter="Literatura">Literatura</button>
+            <button class="filter-btn" data-filter="Política e Liderança">Política & Liderança</button>
+            <button class="filter-btn" data-filter="Ciência e Educação">Ciência & Educação</button>
+            <button class="filter-btn" data-filter="Arte e Cultura">Arte & Cultura</button>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="personalidades-grid">
+          <!-- Renderizado via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CULTURA NEGRA -->
+    <section id="cultura" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Identidade e Expressão</span>
+          <h2>Riqueza da Cultura Negra</h2>
+          <p>A pluralidade das matrizes africanas e afro-brasileiras que moldam nossa linguagem, estética, música e visão de mundo.</p>
+        </div>
+
+        <div class="culture-grid">
+          <div class="culture-card">
+            <h3>Música: Samba, Maracatu, Jongo e Hip-Hop</h3>
+            <p>Dos tambores ancestrais aos centros urbanos, a musicalidade negra criou gêneros que definem a identidade cultural brasileira e global, unindo ritmo, poesia, crônica social e celebração comunitária.</p>
+          </div>
+          <div class="culture-card">
+            <h3>Capoeira e Dança</h3>
