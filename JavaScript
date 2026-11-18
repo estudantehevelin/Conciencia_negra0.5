@@ -1,0 +1,144 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Acessibilidade e Menu Mobile
+  let fontSize = 16;
+  const setFont = (delta) => {
+    fontSize = Math.min(20, Math.max(13, fontSize + delta));
+    document.documentElement.style.fontSize = `${fontSize}px`;
+  };
+  document.getElementById("font-inc").onclick = () => setFont(1);
+  document.getElementById("font-dec").onclick = () => setFont(-1);
+  document.getElementById("btn-contrast").onclick = (e) => {
+    const active = document.body.classList.toggle("high-contrast");
+    e.target.setAttribute("aria-pressed", active);
+  };
+  document.getElementById("menu-btn").onclick = () => {
+    document.getElementById("nav-menu").classList.toggle("open");
+  };
+
+  // 2. Linha do Tempo Interativa
+  const timeline = [
+    { label: "Saberes Africanos", year: "Antes de 1500", title: "Civilizações Africanas", text: "Reinos como Mali, Congo e Iorubá dominavam metalurgia, agricultura, arquitetura e organização social antes da colonização.", img: "https://unsplash.com" },
+    { label: "Quilombos", year: "1597 – 1695", title: "Palmares, Dandara e Zumbi", text: "O Quilombo dos Palmares resistiu por quase um século liderado por Ganga Zumba, Dandara e Zumbi dos Palmares.", img: "https://unsplash.com" },
+    { label: "Abolição (1888)", year: "13 de Maio de 1888", title: "Abolição sem Inclusão", text: "Conquistada pela luta abolicionista de nomes como Luís Gama e José do Patrocínio, mas sem políticas de terra ou educação.", img: "https://unsplash.com" },
+    { label: "Movimento Negro", year: "1931 – 1978", title: "Organização Política e Cultural", text: "Criação da Frente Negra Brasileira, Teatro Experimental do Negro (Abdias do Nascimento) e Movimento Negro Unificado (MNU).", img: "https://unsplash.com" },
+    { label: "Conquistas & Hoje", year: "2003 – Atualidade", title: "Leis e Desafios Atuais", text: "Lei 10.639/03 (ensino afro-brasileiro), Lei de Cotas e criminalização da injúria racial. O desafio segue pela equidade real.", img: "https://unsplash.com" }
+  ];
+
+  const tabsEl = document.getElementById("timeline-tabs");
+  const boxEl = document.getElementById("timeline-box");
+
+  const renderTimeline = (i) => {
+    const item = timeline[i];
+    tabsEl.innerHTML = timeline.map((t, idx) => `<button class="tab-btn ${idx === i ? 'active' : ''}" data-i="${idx}">${t.label}</button>`).join("");
+    boxEl.innerHTML = `<div><span class="year-badge">${item.year}</span><h3>${item.title}</h3><p>${item.text}</p></div><img src="${item.img}" alt="${item.title}">`;
+    tabsEl.querySelectorAll("button").forEach(b => b.onclick = () => renderTimeline(Number(b.dataset.i)));
+  };
+  renderTimeline(0);
+
+  // 3. Personalidades Negras (Busca e Filtro)
+  const pessoas = [
+    { nome: "Zumbi dos Palmares", area: "Liderança", bio: "Último líder do Quilombo dos Palmares e símbolo maior da resistência negra no Brasil.", frase: "Referência histórica do 20 de Novembro." },
+    { nome: "Dandara dos Palmares", area: "Liderança", bio: "Guerreira e estrategista fundamental na defesa militar e agrícola de Palmares.", frase: "Símbolo de coragem e protagonismo feminino." },
+    { nome: "Machado de Assis", area: "Literatura", bio: "Maior escritor brasileiro e fundador da Academia Brasileira de Letras.", frase: "“O essencial é que saiba amar.”" },
+    { nome: "Carolina Maria de Jesus", area: "Literatura", bio: "Autora de 'Quarto de Despejo', traduzido para mais de 13 idiomas.", frase: "“A vida é igual um livro.”" },
+    { nome: "Conceição Evaristo", area: "Literatura", bio: "Escritora premiada e criadora do conceito de 'escrevivência'.", frase: "“Combinamos de não morrer.”" },
+    { nome: "Milton Santos", area: "Ciência e Educação", bio: "Geógrafo baiano vencedor do Prêmio Vautrin Lud, o 'Nobel da Geografia'.", frase: "“O mundo é formado pelo que pode existir.”" },
+    { nome: "Lélia Gonzalez", area: "Ciência e Educação", bio: "Antropóloga pioneira nos estudos de gênero, raça e Amefricanidade.", frase: "“A gente se torna negro.”" },
+    { nome: "Sueli Carneiro", area: "Ciência e Educação", bio: "Filósofa, escritora e fundadora do Geledés – Instituto da Mulher Negra.", frase: "Referência do feminismo negro brasileiro." },
+    { nome: "Abdias do Nascimento", area: "Arte e Cultura", bio: "Fundador do Teatro Experimental do Negro e defensor dos direitos humanos.", frase: "Criador do conceito de Quilombismo." },
+    { nome: "Angela Davis", area: "Ciência e Educação", bio: "Filósofa e ativista norte-americana referência mundial nos direitos civis.", frase: "“É necessário ser antirracista.”" },
+    { nome: "Nelson Mandela", area: "Liderança", bio: "Líder contra o Apartheid e primeiro presidente negro da África do Sul.", frase: "“A educação muda o mundo.”" },
+    { nome: "Maya Angelou", area: "Arte e Cultura", bio: "Poetisa e ativista autora de 'Eu Sei Por Que o Pássaro Canta na Gaiola'.", frase: "“Ainda assim, eu me levanto.”" }
+  ];
+
+  let activeArea = "todos";
+  const renderPessoas = () => {
+    const q = document.getElementById("search-person").value.toLowerCase();
+    const list = pessoas.filter(p => (activeArea === "todos" || p.area === activeArea) && (p.nome.toLowerCase().includes(q) || p.bio.toLowerCase().includes(q)));
+    document.getElementById("person-grid").innerHTML = list.length
+      ? list.map(p => `<article class="card"><span class="meta">${p.area}</span><h3>${p.nome}</h3><p>${p.bio}</p><p class="quote-small">${p.frase}</p></article>`).join("")
+      : "<p>Nenhuma personalidade encontrada.</p>";
+  };
+
+  document.getElementById("search-person").oninput = renderPessoas;
+  document.querySelectorAll("#person-filters .pill").forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll("#person-filters .pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeArea = btn.dataset.area;
+      renderPessoas();
+    };
+  });
+  renderPessoas();
+
+  // 4. Educação e Materiais
+  const materiais = [
+    { tipo: "Livro", titulo: "Pequeno Manual Antirracista", info: "Djamila Ribeiro • Jovens e Adultos", desc: "Caminhos práticos para identificar e combater o racismo no dia a dia." },
+    { tipo: "Livro", titulo: "Amoras", info: "Emicida • Infantil", desc: "Livro ilustrado sobre identidade, afeto e orgulho das raízes negras." },
+    { tipo: "Filme", titulo: "AmarElo – É Tudo Pra Ontem", info: "Documentário • Todas as idades", desc: "A história da cultura negra brasileira conectada ao show no Theatro Municipal." },
+    { tipo: "Filme", titulo: "Estrelas Além do Tempo", info: "Filme • Livre / Escolar", desc: "A história real das matemáticas negras na NASA." },
+    { tipo: "Podcast", titulo: "Projeto Querino", info: "Rádio Novelo • Jovens e Adultos", desc: "Série jornalística sobre o protagonismo negro na história do Brasil." },
+    { tipo: "Escola", titulo: "Roda de Leitura: Griôs Africanos", info: "Atividade • Lei 10.639/03", desc: "Proposta pedagógica com contos africanos e mapas dos reinos antigos." }
+  ];
+
+  const renderMat = (tipo = "todos") => {
+    const list = tipo === "todos" ? materiais : materiais.filter(m => m.tipo === tipo);
+    document.getElementById("mat-grid").innerHTML = list.map(m => `<article class="card"><span class="meta">${m.tipo} • ${m.info}</span><h3>${m.titulo}</h3><p>${m.desc}</p></article>`).join("");
+  };
+  document.querySelectorAll("#mat-filters .pill").forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll("#mat-filters .pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderMat(btn.dataset.mat);
+    };
+  });
+  renderMat();
+
+  // 5. Mural com Moderação, Compromisso e Compartilhar
+  const notes = [
+    { name: "Mariana Silva", msg: "Conhecer nossa verdadeira história transforma o Brasil. Respeito e equidade sempre!" },
+    { name: "Prof. Carlos", msg: "Trabalhar a Lei 10.639/03 o ano inteiro fortalece a autoestima dos estudantes." }
+  ];
+  const blocked = ["odio", "ódio", "macaco", "lixo", "burro", "racista"];
+
+  const renderNotes = () => {
+    document.getElementById("m-list").innerHTML = notes.map(n => `<div class="note">“${n.msg}”<br><strong>— ${n.name}</strong></div>`).join("");
+  };
+  renderNotes();
+
+  document.getElementById("mural-form").onsubmit = (e) => {
+    e.preventDefault();
+    const name = document.getElementById("m-name").value.trim();
+    const msg = document.getElementById("m-msg").value.trim();
+    const fb = document.getElementById("m-feedback");
+
+    if (blocked.some(w => msg.toLowerCase().includes(w))) {
+      fb.style.color = "#9E2A2B";
+      fb.textContent = "Mensagem bloqueada pela moderação. Escreva uma mensagem respeitosa.";
+      return;
+    }
+    notes.unshift({ name, msg });
+    renderNotes();
+    e.target.reset();
+    fb.style.color = "#24593B";
+    fb.textContent = "Mensagem publicada com sucesso!";
+  };
+
+  let count = 1248;
+  document.getElementById("pledge-form").onsubmit = (e) => {
+    e.preventDefault();
+    const name = document.getElementById("p-name").value.trim();
+    count++;
+    document.getElementById("p-count").innerHTML = `<strong>${count.toLocaleString("pt-BR")}</strong> pessoas já assinaram. Obrigado, <strong>${name}</strong>!`;
+    e.target.reset();
+  };
+
+  document.getElementById("btn-share").onclick = () => {
+    if (navigator.share) {
+      navigator.share({ title: document.title, url: location.href });
+    } else {
+      navigator.clipboard.writeText(location.href);
+      alert("Link copiado para compartilhar!");
+    }
+  };
+});
